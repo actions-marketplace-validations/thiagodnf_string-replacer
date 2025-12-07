@@ -1,14 +1,15 @@
 {
   "name": "string-replacer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Thiago Ferreira",
   "license": "MIT",
   "description": "A GitHub Action for finding and replacing strings in your project files",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "prepare": "ncc build src/index.js -o dist --source-map --license licenses.txt",
-    "all": "npm run lint && npm run prepare && npm run test",
+    "lint-fix": "npx eslint . --fix",
+    "build": "ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "all": "npm run lint-fix && npm run build",
     "test": "jest ./test --coverage",
     "update-dependencies": "ncu -u"
   },
